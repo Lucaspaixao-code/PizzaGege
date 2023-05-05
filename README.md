@@ -21,8 +21,7 @@ Projeto da matéria de Front-end(Eng Software - SATC)
     https://www.figma.com/file/Q04u2Ls3TIBcEnHg70xbAU/Untitled?node-id=0%3A1&t=tylGU0wZhrF02sAD-1
 
 ### Público-alvo
-    Os proprietários de pequenas e médias pizzarias utilizaram este projeto para gerenciar seus pedidos 
-    e estoque de forma mais eficiente.
+    Os proprietários de pequenas e médias pizzarias de delivery
 
 ### Tecnologias utilizadas no projeto
     Será utilizada a biblioteca React.js para construir as telas deste protótipo.
