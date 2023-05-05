@@ -2,7 +2,7 @@
 Projeto da matéria de Front-end(Eng Software - SATC)
 
 ### Participantes
-    Gabriel Salazar, Rafael Castro, Lucas Paixao, NAUM MARCIRIO, VITOR LOCH
+    Gabriel Salazar, Rafael Castro, Lucas Paixao, Naum Marcirio, Vitor Loch
 
 ### Descrição
     O aplicativo de gestão de uma pizzaria permite o controle eficiente dos pedidos dos clientes e dos 
