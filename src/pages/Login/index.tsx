@@ -15,7 +15,6 @@ export default function Login(){
         navigate("/")
     }
     return <>
-    <h1>ISSO È UM TESTE :D</h1>
     <form id="login-form">    
         <TextField
             className='login-element'
