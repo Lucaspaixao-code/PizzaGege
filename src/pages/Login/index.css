@@ -1,0 +1,30 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2F0606; 
+}
+
+#login-form{
+  height: 70vh;
+  width: 60vw;
+  position: absolute;
+  border: 1px solid white;
+  background-color: white;
+  transform:translate(-50%, -50%);
+  top: 50%;
+  left:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-element{
+  padding: 30px;
+  margin: 10px;
+}
+
