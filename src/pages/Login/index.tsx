@@ -3,6 +3,7 @@ import { Button, TextField } from "@mui/material";
 import useAuth from "../../router/validations/Auth/hook/useAuth";
 import { useNavigate } from "react-router-dom";
 import './index.css'
+import LogoSvg from "../../assets/logo.svg"
 
 export default function Login(){
     const [username, setUsername] = useState('');
@@ -17,9 +18,8 @@ export default function Login(){
     }
     return <>
     <form id="login-form"> 
-        <img src="https://cdn.discordapp.com/attachments/1072999714322128961/1115442132845600779/geraldopizza_logo_fundo-removebg-preview.png"
-             alt="logo" 
-             className='logo'/>
+    <img src={LogoSvg} alt="logo" width={"50%"} className='logo'/>
+
         <TextField
             className='login-element custom-textfield'
             sx={{
@@ -47,7 +47,7 @@ export default function Login(){
         sx={{
             padding:'15px',
             width:'85%',
-            marginTop:'100px'
+            marginTop:'10px'
         }}
         variant="contained" 
         onClick={()=> handleLoginInButton()} >Entrar</Button>
