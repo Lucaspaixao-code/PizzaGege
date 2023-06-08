@@ -18,6 +18,13 @@ export default function Order({ title }: props) {
     setShowCreateOrder(true);
   };
 
+
+  const handleBack = () => {
+    setShowCreateOrder(false);
+  };
+
+
+
   return <>
     <div className="container">
       {!showCreateOrder && (
@@ -25,10 +32,8 @@ export default function Order({ title }: props) {
       )}
       {showCreateOrder &&
         (<div className="overlay">
-          <CreateOrder />
+          <CreateOrder setBack={handleBack} />
         </div>)}
     </div>
   </>
-
-
 }

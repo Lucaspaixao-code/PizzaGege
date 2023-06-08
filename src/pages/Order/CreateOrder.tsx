@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button, TextField } from "@mui/material";
-import DynamicInputs from '../../core/components/Order/DynamicInputs';
+import DynamicInputs from './components/DynamicInputs';
 import './createOrder.css'
 
 
-export default function CreateOrder() {
+export default function CreateOrder({ setBack }) {
   const [clientName, setClientName] = useState('');
   const [discount, setDiscount] = useState('');
   const [address, setAddress] = useState('');
@@ -43,10 +43,14 @@ export default function CreateOrder() {
 
   return (
     <div class="order-container">
-      <Button className="close-btn">x</Button>
       <form id="order-form">
         <TextField
           className='order-element'
+          sx={{
+            width: '65%',
+            marginRight: '15px',
+            marginBottom: '20px',
+          }}
           type='text'
           id='clientNameId'
           label='Cliente'
@@ -56,6 +60,11 @@ export default function CreateOrder() {
         />
         <TextField
           className='order-element'
+          sx={{
+            width: '30%',
+            marginLeft: '15px',
+            marginBottom: '20px',
+          }}
           type='number'
           id='discountId'
           label='Desconto %'
@@ -66,16 +75,33 @@ export default function CreateOrder() {
         <DynamicInputs onOrderChange={handleOrderChange} />
         <TextField
           className='order-element'
-          type='text'
+          sx={{
+            width: '100%',
+            heigth: '300px',
+            marginBottom: '20px',
+          }}
+          type='textArea'
           id='addressId'
           label='Endereço'
           name='address'
           value={address}
           onChange={handleChange}
         />
-        <Button onClick={handleSave}>Salvar</Button>
-        <Button>Excluir</Button>
+        <div class="buttons">
+          <Button onClick={handleSave}
+            className='order-element'
+            sx={{
+              marginRight: '15px',
+            }}
+            id='saveBtn'>Salvar</Button>
+          <Button
+            className='order-element'
+            sx={{
+              marginLeft: '15px',
+            }}
+            id='deleteBtn' onClick={setBack}>Excluir</Button>
+        </div>
       </form>
-    </div>
+    </div >
   );
 }

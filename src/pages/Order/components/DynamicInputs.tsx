@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField } from "@mui/material";
+import '../createOrder.css'
 
 export default function DynamicInputs({ onOrderChange }) {
   const [order, setOrder] = useState([{ pizza: "", quantity: "" }]);
@@ -34,6 +35,11 @@ export default function DynamicInputs({ onOrderChange }) {
         <div key={index}>
           <TextField
             className="order-element"
+            sx={{
+              width: '55%',
+              marginRight: '15px',
+              marginBottom: '20px',
+            }}
             type="text"
             id={`pizzaId-${index}`}
             label="Pizza"
@@ -44,6 +50,12 @@ export default function DynamicInputs({ onOrderChange }) {
 
           <TextField
             className="order-element"
+            sx={{
+              width: '25%',
+              marginLeft: '15px',
+              marginRigth: '30px',
+              marginBottom: '20px',
+            }}
             type="number"
             id={`quantidadeId-${index}`}
             label="Qtd"
@@ -52,10 +64,22 @@ export default function DynamicInputs({ onOrderChange }) {
             onChange={(e) => handleChange(e, index)}
           />
 
-          <Button onClick={() => handleDelete(index)}>-</Button>
+          <Button onClick={() => handleDelete(index)}
+            sx={{
+              borderRadius: '25px',
+              marginLeft: '30px',
+              background: '#fff',
+              marginTop: '9px',
+            }}>-</Button>
         </div>
-      ))}
-      <Button onClick={handleClick}>+</Button>
-    </div>
+      ))
+      }
+      <Button onClick={handleClick}
+        sx={{
+          borderRadius: '25px',
+          marginBottom: '20px',
+          background: '#fff',
+        }}>+</Button>
+    </div >
   );
 }
