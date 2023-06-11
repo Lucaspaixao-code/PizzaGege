@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 import { Button, TextField } from "@mui/material";
 import DynamicInputs from './components/DynamicInputs';
 import './createOrder.css'
+import IOrderType from './types/OrderType';
+import genHex from '../../utils/genRanHex';
+import PizzasOrderType from './types/PizzasOrderType';
 
+interface props {
+  order?: IOrderType
+  saveOrderData: (order: IOrderType) => void;
+  removeOrderData: (orderId: string) => void;
+  setBack: () => void;
+}
 
-export default function CreateOrder({ setBack }) {
+export default function CreateOrder({ setBack,saveOrderData, order, removeOrderData }: props) {
   const [clientName, setClientName] = useState('');
   const [discount, setDiscount] = useState('');
   const [address, setAddress] = useState('');
-  const [orderList, setOrderList] = useState([]);
+  const [orderList, setOrderList] = useState<PizzasOrderType[]>([]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
 
     if (name === "discount" && value < 0) {
@@ -26,23 +35,25 @@ export default function CreateOrder({ setBack }) {
     }
   };
 
-  const handleOrderChange = (updatedOrder) => {
-    setOrderList(updatedOrder);
+  const handleOrderChange = (updatedOrder: PizzasOrderType) => {
+    setOrderList(p => [...p,updatedOrder]);
   };
 
   const handleSave = () => {
-    const orderData = {
-      clientName: clientName,
-      discount: discount,
+    const orderData: IOrderType = {
+      id: genHex(5),
+      name: clientName,
+      discount: parseInt(discount),
       address: address,
-      orderList: orderList
+      pizzas: orderList
     };
 
     saveOrderData(orderData);
+    setBack()
   };
 
   return (
-    <div class="order-container">
+    <div className="order-container">
       <form id="order-form">
         <TextField
           className='order-element'
@@ -87,7 +98,7 @@ export default function CreateOrder({ setBack }) {
           value={address}
           onChange={handleChange}
         />
-        <div class="buttons">
+        <div className="buttons">
           <Button onClick={handleSave}
             className='order-element'
             sx={{
@@ -96,10 +107,14 @@ export default function CreateOrder({ setBack }) {
             id='saveBtn'>Salvar</Button>
           <Button
             className='order-element'
+            disabled={!order}
             sx={{
               marginLeft: '15px',
             }}
-            id='deleteBtn' onClick={setBack}>Excluir</Button>
+            id='deleteBtn' onClick={() => {
+              removeOrderData(order!.id)
+              setBack()
+            }}>Excluir</Button>
         </div>
       </form>
     </div >

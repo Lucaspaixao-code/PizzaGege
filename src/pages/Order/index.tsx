@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import './index.css';
 import CreateOrder from './CreateOrder';
 import useTitle from "../../core/components/Header/hook/useTitle";
+import Orders from './components/Orders';
+import IOrderType from './types/OrderType';
+import OrdersMock from './mock/orders';
 
-interface props {
-  title: string
-}
-
-export default function Order({ title }: props) {
-
-  const { defineTitle } = useTitle()
-  defineTitle(title)
+export default function OrderPage() {
   const [showCreateOrder, setShowCreateOrder] = useState(false);
+  const [showCreateOrderEdit, setShowCreateOrderEdit] = useState(false);
+  const { defineTitle } = useTitle()
+  defineTitle("Lançamentos")
 
   const handleClick = () => {
     setShowCreateOrder(true);
@@ -23,17 +22,38 @@ export default function Order({ title }: props) {
     setShowCreateOrder(false);
   };
 
+  function handleSaveData (order: IOrderType) {
+    OrdersMock.push(order)
+  }
+
+  function handleRemoveData (orderId: string) {
+    const indexOrdersMock = OrdersMock.findIndex((order)=> order.id = orderId);
+    OrdersMock.splice(indexOrdersMock,1)
+  }
+  
 
 
-  return <>
-    <div className="container">
-      {!showCreateOrder && (
-        <Button onClick={handleClick} class="add-item">+</Button>
-      )}
-      {showCreateOrder &&
+
+  return (
+    <>
+    <Grid container xs={12} sx={{
+      display: "flex",
+      justifyContent: "center",
+      paddingTop: "5rem",
+      flexDirection: "row"
+    }}>
+      <Grid item xs={12}>
+      <Button onClick={handleClick} variant='contained'>Adicionar SALAZAR MUDA A ESTILIZAÇÂO DPS</Button>
+      </Grid>
+      <Orders orders={OrdersMock}/>
+    </Grid>
+    {showCreateOrder &&
         (<div className="overlay">
-          <CreateOrder setBack={handleBack} />
+          <CreateOrder 
+          saveOrderData={handleSaveData} 
+          removeOrderData={handleRemoveData} 
+          setBack={handleBack} />
         </div>)}
-    </div>
-  </>
+    </>
+  )
 }
