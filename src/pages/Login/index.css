@@ -1,0 +1,54 @@
+.custom-textfield {
+  width: 85%;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #731414;
+}
+
+.logo{
+  width: 250px;
+  height: 250px;
+}
+
+#login-form {
+  height: 70vh;
+  width: 60vw;
+  position: absolute;
+  border: 1px solid white;
+  background-color: rgb(245, 240, 240);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 11px 21px 29px -8px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 767px) {
+  /* Estilos para dispositivos móveis */
+  #login-form {
+    height: 85vh;
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Estilos para tablets */
+  #login-form {
+    height: 85vh;
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Estilos para desktops */
+  #login-form {
+    height: 85vh;
+    width: 30vw;
+  }
+}
