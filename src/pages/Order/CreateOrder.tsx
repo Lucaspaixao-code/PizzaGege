@@ -13,7 +13,7 @@ interface props {
   setBack: () => void;
 }
 
-export default function CreateOrder({ setBack,saveOrderData, order, removeOrderData }: props) {
+export default function CreateOrder({ setBack, saveOrderData, order, removeOrderData }: props) {
   const [clientName, setClientName] = useState('');
   const [discount, setDiscount] = useState('');
   const [address, setAddress] = useState('');
@@ -36,7 +36,7 @@ export default function CreateOrder({ setBack,saveOrderData, order, removeOrderD
   };
 
   const handleOrderChange = (updatedOrder: PizzasOrderType) => {
-    setOrderList(p => [...p,updatedOrder]);
+    setOrderList(p => [...p, updatedOrder]);
   };
 
   const handleSave = () => {

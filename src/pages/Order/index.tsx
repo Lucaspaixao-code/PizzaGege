@@ -17,42 +17,42 @@ export default function OrderPage() {
     setShowCreateOrder(true);
   };
 
-
   const handleBack = () => {
     setShowCreateOrder(false);
   };
 
-  function handleSaveData (order: IOrderType) {
+  function handleSaveData(order: IOrderType) {
     OrdersMock.push(order)
   }
 
-  function handleRemoveData (orderId: string) {
-    const indexOrdersMock = OrdersMock.findIndex((order)=> order.id = orderId);
-    OrdersMock.splice(indexOrdersMock,1)
+  function handleRemoveData(orderId: string) {
+    const indexOrdersMock = OrdersMock.findIndex((order) => order.id = orderId);
+    OrdersMock.splice(indexOrdersMock, 1)
   }
-  
-
-
 
   return (
     <>
-    <Grid container xs={12} sx={{
-      display: "flex",
-      justifyContent: "center",
-      paddingTop: "5rem",
-      flexDirection: "row"
-    }}>
-      <Grid item xs={12}>
-      <Button onClick={handleClick} variant='contained'>Adicionar SALAZAR MUDA A ESTILIZAÇÂO DPS</Button>
+      <Grid container xs={12} sx={{
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "5rem",
+        flexDirection: "row"
+      }}>
+        <Orders orders={OrdersMock} />
+        <Grid item xs={12} sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Button onClick={handleClick} variant='contained' class="add-item">+</Button>
+        </Grid>
       </Grid>
-      <Orders orders={OrdersMock}/>
-    </Grid>
-    {showCreateOrder &&
+      {showCreateOrder &&
         (<div className="overlay">
-          <CreateOrder 
-          saveOrderData={handleSaveData} 
-          removeOrderData={handleRemoveData} 
-          setBack={handleBack} />
+          <CreateOrder
+            saveOrderData={handleSaveData}
+            removeOrderData={handleRemoveData}
+            setBack={handleBack} />
         </div>)}
     </>
   )
