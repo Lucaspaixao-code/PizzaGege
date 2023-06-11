@@ -36,7 +36,7 @@ export default function Login(){
             sx={{
                 margin: '10px',
             }}            
-            type='text'
+            type='password'
             id="passwordId"
             label="Senha do Usuário"
             value={password}
