@@ -45,7 +45,7 @@ export default function OrderPage() {
         </Grid>
         <Orders orders={OrdersMock} />
       </Grid>
-      <CreateOrderModal open={showCreateOrder}  close={handleBack} handleSave={()=> console.log('oie')}/>
+      <CreateOrderModal open={showCreateOrder}  close={handleBack} handleSave={(e)=> console.log(e)}/>
     </>
   )
 }
