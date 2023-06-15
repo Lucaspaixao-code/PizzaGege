@@ -24,7 +24,13 @@ export default function ModalDefault({open,handleClose,children,title,size}: pro
                 </Stack>
             </DialogTitle>
             <DialogContent>
-                {children}
+                <Stack sx={{
+                    width: "100%",
+                    height: "100%",
+                    marginTop: "1rem"
+                }}>
+                    {children}
+                </Stack>
             </DialogContent>
         </Dialog>
     )
