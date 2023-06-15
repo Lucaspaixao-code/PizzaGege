@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Grid } from "@mui/material";
-import './index.css';
-import CreateOrder from './CreateOrder';
 import useTitle from "../../core/components/Header/hook/useTitle";
 import Orders from './components/Orders';
 import IOrderType from './types/OrderType';
 import OrdersMock from './mock/orders';
+import CreateOrderModal from './components/CreateOrderModal';
 
 export default function OrderPage() {
   const [showCreateOrder, setShowCreateOrder] = useState(false);
-  const [showCreateOrderEdit, setShowCreateOrderEdit] = useState(false);
   const { defineTitle } = useTitle()
   defineTitle("Lançamentos")
 
@@ -38,22 +36,16 @@ export default function OrderPage() {
         paddingTop: "5rem",
         flexDirection: "row"
       }}>
-        <Orders orders={OrdersMock} />
-        <Grid item xs={12} sx={{
+        <Grid item xs={9} sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-          <Button onClick={handleClick} variant='contained' class="add-item">+</Button>
+          <Button variant='contained' disableElevation onClick={handleClick}><b>+</b></Button>
         </Grid>
+        <Orders orders={OrdersMock} />
       </Grid>
-      {showCreateOrder &&
-        (<div className="overlay">
-          <CreateOrder
-            saveOrderData={handleSaveData}
-            removeOrderData={handleRemoveData}
-            setBack={handleBack} />
-        </div>)}
+      <CreateOrderModal open={showCreateOrder}  close={handleBack} handleSave={()=> console.log('oie')}/>
     </>
   )
 }
