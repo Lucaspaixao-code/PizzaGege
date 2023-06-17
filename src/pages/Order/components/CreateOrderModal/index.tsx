@@ -21,7 +21,7 @@ export default function CreateOrderModal({open,close,handleSave}: props){
             pizzas: []
         },
         onSubmit: handleSave
-        validateYupSchema: 
+        //validateYupSchema: 
     })
     return (
         <ModalDefault open={open} handleClose={close} title="Criar Pedido" size="md">
