@@ -6,7 +6,7 @@ Projeto da matéria de Front-end(Eng Software - SATC)
 
 ### Descrição
     O aplicativo de gestão de uma pizzaria permite o controle eficiente dos pedidos dos clientes e dos 
-    ingredientes necessários para a produção das pizzas
+    ingredientes necessários para a produção das pizzas.
 
 ### Objetivo do projeto 
     Uma das maiores preocupações do nosso publico alvo é manter o controle eficiente de seus estoques. 
@@ -21,7 +21,7 @@ Projeto da matéria de Front-end(Eng Software - SATC)
     https://www.figma.com/file/Q04u2Ls3TIBcEnHg70xbAU/Untitled?node-id=0%3A1&t=tylGU0wZhrF02sAD-1
 
 ### Público-alvo
-    Os proprietários de pequenas e médias pizzarias de delivery
+    Os proprietários de pequenas e médias pizzarias de delivery.
 
 ### Tecnologias utilizadas no projeto
     Será utilizada a biblioteca React.js para construir as telas deste protótipo.
