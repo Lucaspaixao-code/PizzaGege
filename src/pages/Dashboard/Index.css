@@ -1,0 +1,85 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0px auto;
+}
+
+
+
+.qtdSales {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 315px;
+    width: 1080px;
+    margin: 30px auto;
+    background-color: #EFEFEF;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    ;
+}
+
+
+.escritaGrafico{
+    
+    font-family: 'Dm Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+
+
+.topPizzas{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 322px;
+    width: 349px;
+    margin: 30px 30px 0px 0px;
+    background-color: #EFEFEF;
+    padding: 60px 90px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+
+.gastosGanhos{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height:100px;
+    width: 60%;
+    margin: 30px 0px 0px 30px;
+    background-color: #EFEFEF;
+    padding: 60px 90px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    align-self: flex-end;
+}
+
+
+
+
+.graficosInferiores{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+
+
+.graficoQtdSales{
+    width: 1000px;
+    height: 100%;
+}
