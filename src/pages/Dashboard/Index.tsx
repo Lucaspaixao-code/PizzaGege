@@ -29,8 +29,8 @@ export default function Dashboard({ title }: props) {
         data: [12, 19, 3, 5, 2, 20],
         backgroundColor: "#761616",
         borderColor: "#761616",
-        borderWidth: 1,
-        barThickness: 120,
+        borderWidth: 2,
+        barThickness: 50,
       },
     ],
   };
@@ -58,7 +58,7 @@ export default function Dashboard({ title }: props) {
     labels: ["Gastos", "Ganhos"],
     datasets: [
       {
-        label: "Pizzas",
+        label: ["Gastos"],
         data: [12, 19],
         backgroundColor: ["#761616", "#465F12"],
         borderColor: "#761616",
@@ -73,27 +73,26 @@ export default function Dashboard({ title }: props) {
         beginAtZero: true,
       },
     },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
   };
 
   return (
     <div className="container">
       <div className="qtdSales">
         <p className="escritaGrafico">Pizzas Vendidas por Mês</p>
-        <Bar
-          className="graficoQtdSales"
-          data={dataqtdSales}
-          options={optionsqtdSales}
-        />
+        <Bar data={dataqtdSales} options={optionsqtdSales} />
       </div>
-      <div className="graficosInferiores">
-        <div className="topPizzas">
-          <p className="escritaGrafico">Top 3 Pizzas Favoritas do Mês</p>
-          <Pie data={datatopPizzas} />
-        </div>
-        <div className="gastosGanhos">
-          <p className="escritaGrafico">Lucros no Mês</p>
-          <Bar data={datagastosGanhos} options={optionsgastosGanhos} />
-        </div>
+      <div className="topPizzas">
+        <p className="escritaGrafico">Top 3 Pizzas do Mês</p>
+        <Pie data={datatopPizzas} />
+      </div>
+      <div className="gastosGanhos">
+        <p className="escritaGrafico">Lucros no Mês</p>
+        <Bar data={datagastosGanhos} options={optionsgastosGanhos} />
       </div>
     </div>
   );
