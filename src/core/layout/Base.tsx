@@ -4,7 +4,7 @@ import { Grid, Stack } from "@mui/material";
 import Header from "../components/Header";
 import { TitleContextProvider } from "../components/Header/context/TitleContext";
 
-export default function Base(){
+export default function Base() {
     return (
         <TitleContextProvider>
             <Grid xs={12} container>
@@ -23,7 +23,7 @@ export default function Base(){
                         }}>
                             <Header />
                         </Stack>
-                        <Outlet/>
+                        <Outlet />
                     </Stack>
                 </Grid>
             </Grid>
