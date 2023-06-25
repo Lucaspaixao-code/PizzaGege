@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Grid } from "@mui/material";
 import useTitle from "../../core/components/Header/hook/useTitle";
 import Orders from './components/Orders';
@@ -8,6 +8,8 @@ import CreateOrderModal from './components/CreateOrderModal';
 
 export default function OrderPage() {
   const [showCreateOrder, setShowCreateOrder] = useState(false);
+  const [showOrders,setShowOrders] = useState<IOrderType[]>([]);
+  const [updateOrders,setUpdateOrders] = useState(false);
   const { defineTitle } = useTitle()
   defineTitle("Lançamentos")
 
@@ -21,12 +23,15 @@ export default function OrderPage() {
 
   function handleSaveData(order: IOrderType) {
     OrdersMock.push(order)
+    setUpdateOrders(true);
   }
 
-  function handleRemoveData(orderId: string) {
-    const indexOrdersMock = OrdersMock.findIndex((order) => order.id = orderId);
-    OrdersMock.splice(indexOrdersMock, 1)
-  }
+  useEffect(()=>{
+    if(updateOrders){
+      setShowOrders(OrdersMock)
+      setUpdateOrders(false);
+    }
+  },[updateOrders])
 
   return (
     <>
@@ -43,9 +48,9 @@ export default function OrderPage() {
         }}>
           <Button variant='contained' disableElevation onClick={handleClick}><b>+</b></Button>
         </Grid>
-        <Orders orders={OrdersMock} />
+        <Orders orders={showOrders} />
       </Grid>
-      <CreateOrderModal open={showCreateOrder}  close={handleBack} handleSave={(e)=> console.log(e)}/>
+      <CreateOrderModal open={showCreateOrder}  close={handleBack} handleSave={handleSaveData}/>
     </>
   )
 }

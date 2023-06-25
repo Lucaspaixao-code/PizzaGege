@@ -1,5 +1,5 @@
 import { Close } from "@mui/icons-material";
-import { Breakpoint, Dialog, DialogContent, DialogTitle, IconButton, Stack, Typography } from "@mui/material";
+import { Breakpoint, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Stack, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface props {
@@ -8,10 +8,13 @@ interface props {
     handleClose: () => void;
     size: Breakpoint
     children: ReactNode;
+    footer: ReactNode;
 }
-export default function ModalDefault({open,handleClose,children,title,size}: props){
+export default function ModalDefault({open,handleClose,children,title,size, footer}: props){
     return (
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth={size} >
+        <Dialog open={open} onClose={handleClose} fullWidth maxWidth={size} sx={{
+            overflow: "hidden"
+        }} >
             <DialogTitle>
                 <Stack sx={{
                     display: "flex",
@@ -27,11 +30,16 @@ export default function ModalDefault({open,handleClose,children,title,size}: pro
                 <Stack sx={{
                     width: "100%",
                     height: "100%",
-                    marginTop: "1rem"
+                    marginTop: "1.5rem",
+                    marginBottom: "1.5rem",
                 }}>
                     {children}
                 </Stack>
             </DialogContent>
+
+            <DialogActions>
+                {footer}
+            </DialogActions>
         </Dialog>
     )
 }

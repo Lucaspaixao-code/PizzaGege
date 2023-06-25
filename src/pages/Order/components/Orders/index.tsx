@@ -1,12 +1,17 @@
 import { Stack, Typography } from "@mui/material";
 import Order from "./components/Order";
 import IOrderType from "../../types/OrderType";
+import { useEffect } from "react";
 
 interface props {
     orders: IOrderType[]
 }
 
 export default function Orders({orders}: props){
+    useEffect(()=>{
+        console.log(orders);
+    },[orders.length])
+
     return (
         <Stack sx={{
             width: "70%",
