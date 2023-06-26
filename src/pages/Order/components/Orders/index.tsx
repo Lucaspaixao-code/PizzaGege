@@ -20,6 +20,7 @@ export default function Orders({orders}: props){
             alignItems: "center",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.25);",
+            gap: "1rem",
             padding: "2rem"
         }}>
             {orders.length == 0 ? (
