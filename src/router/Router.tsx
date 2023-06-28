@@ -1,5 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard/Index.tsx";
 import AuthValidation from "./validations/Auth";
 import TesteFilho from "../pages/Teste";
 import Base from "../core/layout/Base";
@@ -12,9 +13,9 @@ const Router = createBrowserRouter(
             <Route path="/login" element={<Login />} />
             <Route element={<AuthValidation />}>
                 <Route element={<Base />} >
-                    <Route path="/" element={<StockPage title="Estoque" />} />
+                    <Route path="/" element={<StockPage />} />
                     <Route path="/order" element={<OrderPage/>} />
-                    <Route path="/dashboard" element={<TesteFilho title="Dashboard" />} />
+                    <Route path="/dashboard" element={<Dashboard title="Dashboard" />} />
                 </Route>
             </Route>
         </Route>
