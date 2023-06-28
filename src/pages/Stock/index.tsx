@@ -3,7 +3,7 @@ import { Button, Grid } from "@mui/material";
 import useTitle from "../../core/components/Header/hook/useTitle";
 import Stocker from './components/Stock';
 import StockMock from './mock/Stock';
-import CreateStockModal from './components/index';
+import CreateStockModal from './components/CreateStockModal/index';
 
 export default function Stock() {
   const [showCreateOrder, setShowCreateOrder] = useState(false);

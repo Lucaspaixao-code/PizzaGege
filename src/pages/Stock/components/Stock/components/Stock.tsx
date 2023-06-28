@@ -3,75 +3,63 @@ import IStockType from "../../../types/PizzaStockType";
 
 interface Props {
   stock: IStockType;
+  id: string;
   onEdit: () => void;
 }
 
-export default function Stock({ stock, onEdit }: Props) {
+export default function Stock({ stock, id, onEdit }: Props) {
   return (
-    <Stack
-      sx={{
-        width: "100%",
-        height: "15%",
-        borderBottom: "1px solid #BEBEBE",
-        borderRadius: "5px",
-        padding: "0.5rem"
-      }}
-    >
-      <Grid container alignItems="center">
-        <Grid item>
-          <Typography
-            sx={{
-              marginLeft: "30px",
-              fontWeight: "400",
-              fontSize: "20px",
-              lineHeight: "26px",
-              letterSpacing: "3px"
-            }}
-          >
-            Pizza de <span style={{ color: "#E93232" }}>{stock.name}</span>
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography>[{stock.expiration_date}]</Typography>
-        </Grid>
-      </Grid>
-      <Typography
+    <Stack sx={{
+      width: "100%",
+      backgroundColor: "#eeeeee",
+      border: "0.1px solid #ec9c9c",
+      borderRadius: "5px",
+      padding: "0.5rem",
+    }}>
+      <Stack
         sx={{
-          fontWeight: "400",
-          fontSize: "12px",
-          lineHeight: "16px",
-          letterSpacing: "1px",
-          marginLeft: "60px"
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+          flexDirection: "row-reverse"
         }}
+        key={id}
       >
-        {stock.desc}
-      </Typography>
-      <Grid
-        marginLeft="auto"
-        alignSelf="center"
-        sx={{ marginTop: "0.5rem" }}
-      >
-        <Grid item sx={{ marginLeft: "auto" }}>
-          <Typography
-            sx={{
-              color: "#E93232",
-              fontWeight: "400",
-              fontSize: "20px",
-              lineHeight: "26px",
-              letterSpacing: "3px",
-              width: "fit-content",
-              padding: "2px 5px",
-              marginTop: "30px"
-            }}
-          >
-            {stock.qtde}
-          </Typography>
-        </Grid>
-        <Grid item>
+        <Stack sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end"
+        }}>
+          <Typography color={"primary"}>{stock.qtde}</Typography>
           <Typography>R${stock.cost}</Typography>
-        </Grid>
-      </Grid>
-      <Button onClick={onEdit}>Editar</Button>
+        </Stack>
+        <Stack sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+        }}>
+          <Stack sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "3px"
+          }}>
+            <Typography variant="body1" color={"primary"}> Pizza de</Typography>
+            <Typography variant="body1">{stock.name}</Typography>
+            <Typography variant="body1">[{stock.expiration_date}]</Typography>
+          </Stack>
+          <Typography sx={{ fontSize: "12px" }} variant="body1">{stock.desc}</Typography>
+        </Stack>
+      </Stack>
+      <Stack sx={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-end"
+      }}>
+        <Button onClick={onEdit} variant="outlined">Editar</Button>
+      </Stack>
     </Stack>
   );
 }
